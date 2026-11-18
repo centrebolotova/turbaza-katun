@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Турбаза на Катуни — продажа</title>
+<meta name="description" content="Действующая турбаза на первой линии Катуни: 2 га соснового леса, 16 домиков, 13-й км Чемальского тракта. Продажа 100 % долей ООО.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Турбаза на первой линии Катуни — продажа">
+<meta property="og:description" content="2 га соснового леса, 16 домиков, 13-й км Чемальского тракта. Готовая концепция загородного отеля.">
+<meta property="og:image" content="https://centrebolotova.github.io/turbaza-katun/img/og.jpg">
+<meta property="og:url" content="https://centrebolotova.github.io/turbaza-katun/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e1916">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&family=Golos+Text:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: ночная хвоя и ледниковая бирюза Катуни; вертикальный «тракт» с километровыми столбами связывает разделы */
+:root{
+  --pine:#0e1916;      /* фон: хвойная ночь */
+  --pine-2:#15231f;    /* поверхности */
+  --line:#263a34;      /* линии, гранит */
+  --birch:#e9eee8;     /* основной текст: береста */
+  --mist:#93a69f;      /* второстепенный текст: туман над рекой */
+  --katun:#62cfc4;     /* акцент: бирюза Катуни */
+  --post:#f4f4ef;      /* километровый столб */
+  --f-display:"Unbounded","Segoe UI",Arial,sans-serif;
+  --f-body:"Golos Text","Segoe UI",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",Consolas,"Courier New",monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pine);color:var(--birch);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--katun);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:300;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(28px,4vw,46px);line-height:1.1}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--katun)}
+.mono{font-family:var(--f-mono);font-size:13px;color:var(--mist)}
+p{margin:0;max-width:62ch}
+.muted{color:var(--mist)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;min-height:clamp(560px,82vh,820px);display:flex;align-items:flex-end;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:drift 18s ease-out forwards}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,25,22,.15) 0%,rgba(14,25,22,.35) 45%,var(--pine) 100%)}
+@keyframes drift{to{transform:scale(1)}}
+.hero .wrap{width:100%;padding-block:0 56px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+.hero h1{font-size:clamp(36px,6.4vw,84px);line-height:1.02;margin:18px 0 22px;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--katun)}
+.hero .lead{font-size:clamp(17px,1.6vw,20px);color:#d5ddd8;max-width:52ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;font:500 15px var(--f-body);text-decoration:none;border:1px solid var(--birch);color:var(--birch);background:transparent;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--birch);color:var(--pine)}
+.btn.main{background:var(--katun);border-color:var(--katun);color:#06231f}
+.btn.main:hover{background:var(--birch);border-color:var(--birch)}
+/* километровый столб */
+.post{width:92px;background:var(--post);color:#111;text-align:center;padding:14px 0 12px;box-shadow:0 18px 40px rgba(0,0,0,.4);border-top:10px solid #111}
+.post b{display:block;font:500 46px/1 var(--f-display)}
+.post span{display:block;font:400 10px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+
+
+/* ВАРИАНТЫ ПЕРВОГО ЭКРАНА */
+.hero-video,.hero-split{position:absolute;inset:0;z-index:-2;display:none}
+.hero-video video{width:100%;height:100%;object-fit:cover}
+.hero-split{grid-template-columns:1fr 1fr}
+.hero-split figure{margin:0;position:relative;overflow:hidden}
+.hero-split img{width:100%;height:100%;object-fit:cover}
+.hero-split figcaption{position:absolute;top:calc(24px + env(safe-area-inset-top,0px));left:24px;font:400 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(14,25,22,.75);padding:7px 10px}
+.hero-split figure+figure figcaption{color:var(--katun)}
+.hero[data-v="video"] .hero-img,.hero[data-v="split"] .hero-img,.hero[data-v="type"] .hero-img{display:none}
+.hero[data-v="video"] .hero-video{display:block}
+.hero[data-v="split"] .hero-split{display:grid}
+.hero[data-v="split"]::after{background:linear-gradient(90deg,rgba(14,25,22,.7) 0%,rgba(14,25,22,.25) 60%,rgba(14,25,22,.1) 100%),linear-gradient(180deg,transparent 40%,var(--pine) 100%)}
+.hero[data-v="type"]{background:radial-gradient(120% 90% at 85% 10%,#16302a 0%,var(--pine) 60%)}
+.hero[data-v="type"]::before{content:"";position:absolute;right:-6%;top:8%;width:62%;height:120%;z-index:-1;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(98,207,196,.08) 22px 23px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.hero[data-v="type"] h1{font-size:clamp(40px,8vw,112px);max-width:12ch}
+.variants{position:fixed;z-index:40;left:calc(12px + env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));background:rgba(14,25,22,.94);border:1px solid var(--line);padding:10px 12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;max-width:calc(100vw - 24px)}
+.variants span{font:400 11px var(--f-mono);color:var(--mist);letter-spacing:.08em;margin-right:4px}
+.variants button{font:500 13px var(--f-body);background:transparent;color:var(--birch);border:1px solid var(--line);padding:7px 10px;cursor:pointer}
+.variants button[aria-pressed="true"]{background:var(--katun);color:#06231f;border-color:var(--katun)}
+.variants .hide{border:0;color:var(--mist)}
+@media (max-width:560px){.hero-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}
+
+/* ЦИФРЫ */
+.facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact{padding:28px 20px 26px;border-left:1px solid var(--line);min-width:0}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{display:block;font:300 clamp(22px,2.1vw,28px)/1.15 var(--f-display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fact span{display:block;margin-top:8px;font-size:14px;color:var(--mist);line-height:1.4}
+
+section{padding-block:96px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:44px}
+.head p{color:var(--mist)}
+
+/* ГАЛЕРЕЯ СЕЙЧАС / КОНЦЕПЦИЯ */
+.switch{display:inline-flex;border:1px solid var(--line);margin-top:22px}
+.switch button{font:500 14px var(--f-body);color:var(--mist);background:transparent;border:0;padding:12px 20px;cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--katun);color:#06231f}
+.gal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(120px,15vw,190px);gap:8px}
+.gal button{all:unset;cursor:zoom-in;position:relative;overflow:hidden;background:var(--pine-2)}
+.gal button:focus-visible{outline:2px solid var(--katun);outline-offset:2px}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal button:hover img{transform:scale(1.04)}
+.gal .a{grid-column:span 3;grid-row:span 2}
+.gal .b{grid-column:span 3}
+.gal .c{grid-column:span 2}
+.gal .t{grid-column:span 2;grid-row:span 2}
+[hidden]{display:none!important}
+.cap{margin-top:14px}
+.badge{position:absolute;left:10px;bottom:10px;font:400 11px var(--f-mono);letter-spacing:.06em;background:rgba(14,25,22,.8);color:var(--birch);padding:5px 8px}
+
+/* ОБЪЕКТ */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row dt{color:var(--mist);font-size:15px}
+.row dd{margin:0}
+.note{margin-top:16px;font-size:14px;color:var(--mist)}
+h3{font-size:20px;margin-bottom:18px;font-weight:300}
+
+/* РАСПОЛОЖЕНИЕ */
+.route{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.road{position:relative;padding-left:46px}
+.road::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(var(--mist) 0 10px,transparent 10px 18px)}
+.stop{position:relative;padding:14px 0 22px}
+.stop::before{content:"";position:absolute;left:-38px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--pine);border:2px solid var(--mist)}
+.stop.here::before{background:var(--katun);border-color:var(--katun);box-shadow:0 0 0 7px rgba(98,207,196,.18)}
+.stop b{font:300 22px/1.2 var(--f-display);display:block}
+.stop.here b{color:var(--katun)}
+.stop .mono{display:block;margin-top:4px}
+.route-img{background:var(--pine-2);overflow:hidden}
+.route-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.route-img.map{background:#fff;max-width:480px;width:100%;justify-self:center}
+.route-img.map img{aspect-ratio:auto;object-fit:contain}
+
+/* КОНЦЕПЦИЯ */
+.plan{background:#fff;padding:10px;cursor:zoom-in;display:block;width:100%;border:0}
+.plan img{width:100%;height:auto}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.spec{background:var(--pine);padding:22px 18px;min-width:0}
+.spec b{display:block;font:300 26px/1.1 var(--f-display)}
+.spec span{display:block;margin-top:8px;color:var(--mist);font-size:14px;line-height:1.4}
+
+/* КОМУ */
+.who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.who div{border-top:2px solid var(--katun);padding-top:20px}
+.who h3{margin-bottom:10px}
+
+/* КОНТАКТ */
+.deal{background:var(--pine-2);border-top:1px solid var(--line)}
+.deal .two{align-items:end}
+.price{font:300 clamp(40px,6vw,76px)/1 var(--f-display);margin:16px 0 14px;font-variant-numeric:tabular-nums}
+.phone{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:14px 0 22px}
+.phone output{font:300 clamp(26px,3vw,36px)/1.1 var(--f-display);user-select:all}
+.copy{font:400 13px var(--f-mono);background:transparent;color:var(--katun);border:1px solid var(--katun);padding:8px 12px;cursor:pointer}
+footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid var(--line)}
+
+/* ЛАЙТБОКС */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(5,10,9,.94);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-height:86vh;max-width:100%;object-fit:contain}
+.lb button{position:absolute;background:transparent;border:1px solid var(--line);color:var(--birch);font:400 14px var(--f-mono);padding:10px 14px;cursor:pointer}
+.lb .x{top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px))}
+.lb .prev{left:calc(16px + env(safe-area-inset-left,0px));top:50%}
+.lb .next{right:calc(16px + env(safe-area-inset-right,0px));top:50%}
+.lb p{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;max-width:none;color:var(--mist);font:400 12px var(--f-mono)}
+
+/* появление */
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.12s}.rise.d2{animation-delay:.24s}.rise.d3{animation-delay:.36s}
+@keyframes rise{from{transform:translateY(18px);opacity:.001}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@media (max-width:900px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact{border-left:0;padding-left:0;border-bottom:1px solid var(--line)}
+  .fact:last-child{grid-column:span 2;border-bottom:0}
+  .head,.two,.route{grid-template-columns:minmax(0,1fr);gap:28px}
+  .specs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .who{grid-template-columns:minmax(0,1fr)}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(120px,36vw,220px)}
+  .gal .a{grid-column:span 2;grid-row:span 2}
+  .gal .b,.gal .c,.gal .t{grid-column:span 1;grid-row:span 1}
+  section{padding-block:64px}
+}
+@media (max-width:560px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .post{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));width:70px;padding:10px 0 8px;border-top-width:7px}
+  .post b{font-size:32px}
+  .row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .btn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="hero" data-v="photo">
+  <div class="hero-img"><img src="img/hero.jpg" alt="Катунь и скалы у границы участка" id="hero-photo"></div>
+  <div class="hero-video"><video id="hero-video" muted loop playsinline preload="none" poster="img/hero.jpg"><source src="img/hero.mp4" type="video/mp4"></video></div>
+  <div class="hero-split" aria-hidden="true">
+    <figure><img src="img/now-1.jpg" alt=""><figcaption>Сейчас</figcaption></figure>
+    <figure><img src="img/c-3.jpg" alt=""><figcaption>Концепция</figcaption></figure>
+  </div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rise">Продаётся · Республика Алтай · Чемальский район</div>
+      <h1 class="rise d1">Турбаза на&nbsp;первой линии <em>Катуни</em></h1>
+      <p class="lead rise d2">Два гектара соснового леса в Усть-Семе. Работающая база на 16 домиков и готовая концепция загородного отеля.</p>
+      <div class="cta rise d3">
+        <a class="btn main" href="#deal">Узнать условия</a>
+        <a class="btn" href="#gallery">Смотреть фото</a>
+      </div>
+    </div>
+    <div class="post rise d2" aria-label="13-й километр Чемальского тракта"><b>13</b><span>Чемальский<br>тракт</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="facts">
+    <div class="fact"><b>2&nbsp;га</b><span>первая береговая линия, сосновый лес</span></div>
+    <div class="fact"><b>16</b><span>гостевых домиков, официальная классификация</span></div>
+    <div class="fact"><b>~1,2&nbsp;млн&nbsp;₽</b><span>средняя выручка в месяц сезона*</span></div>
+    <div class="fact"><b>до&nbsp;2059</b><span>аренда участка, 119&nbsp;тыс.&nbsp;₽ в год</span></div>
+    <div class="fact"><b>50&nbsp;мин</b><span>от аэропорта Горно-Алтайска</span></div>
+  </div>
+</div>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Территория</div>
+        <h2 style="margin-top:14px">Что есть сейчас и&nbsp;каким может стать</h2>
+        <div class="switch" role="tablist" aria-label="Галерея">
+          <button role="tab" id="tab-now" aria-selected="true" data-set="now">Сейчас</button>
+          <button role="tab" id="tab-future" aria-selected="false" data-set="future">Концепция</button>
+        </div>
+      </div>
+      <p id="gal-note">Настоящие фото: домики под соснами, детская площадка, палаточная поляна и выход к Катуни.</p>
+    </div>
+
+    <div class="gal" data-set="now">
+      <button class="a" data-cap="Катунь с территории турбазы"><img src="img/now-river.jpg" alt="Катунь с территории турбазы" loading="lazy"></button>
+      <button class="b" data-cap="Гостевые домики"><img src="img/now-1.jpg" alt="Гостевые домики" loading="lazy"></button>
+      <button class="b" data-cap="Усть-Сема и Катунь с высоты"><img src="img/now-aerial.jpg" alt="Усть-Сема и Катунь с высоты" loading="lazy"></button>
+      <button class="c" data-cap="Территория и бассейн"><img src="img/now-2.jpg" alt="Территория и бассейн" loading="lazy"></button>
+      <button class="c" data-cap="Детская площадка и дома"><img src="img/now-3.jpg" alt="Детская площадка и дома" loading="lazy"></button>
+      <button class="c" data-cap="Палаточная поляна"><img src="img/now-4.jpg" alt="Палаточная поляна" loading="lazy"></button>
+    </div>
+    <div class="gal" data-set="future" hidden>
+      <button class="a" data-cap="Вид с Катуни. Концепция"><img src="img/c-1.jpg" alt="Вид с Катуни, визуализация" loading="lazy"><span class="badge">3D-визуализация</span></button>
+      <button class="b" data-cap="Главный корпус. Концепция"><img src="img/c-3.jpg" alt="Главный корпус, визуализация" loading="lazy"><span class="badge">3D-визуализация</span></button>
+      <button class="b" data-cap="Терраса и вход. Концепция"><img src="img/c-6.jpg" alt="Терраса и вход, визуализация" loading="lazy"><span class="badge">3D-визуализация</span></button>
+      <button class="c" data-cap="Место для костра. Концепция"><img src="img/c-2.jpg" alt="Место для костра, визуализация" loading="lazy"><span class="badge">3D</span></button>
+      <button class="c" data-cap="Гостевой домик. Концепция"><img src="img/c-4.jpg" alt="Гостевой домик, визуализация" loading="lazy"><span class="badge">3D</span></button>
+      <button class="c" data-cap="Бассейн. Концепция"><img src="img/c-5.jpg" alt="Бассейн, визуализация" loading="lazy"><span class="badge">3D</span></button>
+    </div>
+    <p class="mono cap" id="gal-cap">Фото турбазы, лето</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Объект</div>
+      <h2 style="margin:14px 0 30px">Что продаётся</h2>
+      <dl class="rows">
+        <div class="row"><dt>Сделка</dt><dd>100&nbsp;% долей ООО. Компания арендует участок и управляет турбазой, договор аренды остаётся у компании.</dd></div>
+        <div class="row"><dt>Участок</dt><dd>20&nbsp;000&nbsp;м², первая береговая линия Катуни, сосновый лес, вид на горы.</dd></div>
+        <div class="row"><dt>Турбаза</dt><dd>16 домиков, детская площадка, палаточная поляна. Сезон с мая по сентябрь.</dd></div>
+        <div class="row"><dt>Выручка</dt><dd>Около 1,2&nbsp;млн&nbsp;₽ в месяц сезона.*</dd></div>
+      </dl>
+      <p class="note">* Данные собственника. Подтверждаются документами при проверке объекта.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Документы</div>
+      <h2 style="margin:14px 0 30px">Земля и&nbsp;аренда</h2>
+      <dl class="rows">
+        <div class="row"><dt>Кадастровый номер</dt><dd class="mono" style="color:var(--birch);font-size:15px">04:05:000000:333</dd></div>
+        <div class="row"><dt>Категория</dt><dd>Земли лесного фонда, рекреационная деятельность.</dd></div>
+        <div class="row"><dt>Аренда</dt><dd>49 лет по договору от 29.04.2010, до 2059 года, с правом пролонгации.</dd></div>
+        <div class="row"><dt>Арендная плата</dt><dd>118&nbsp;736&nbsp;₽ в год.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap route">
+    <div>
+      <div class="eyebrow">Расположение</div>
+      <h2 style="margin:14px 0 34px">На главной туристической дороге Алтая</h2>
+      <div class="road">
+        <div class="stop"><b>Горно-Алтайск</b><span class="mono">61 км · около часа</span></div>
+        <div class="stop"><b>Аэропорт Горно-Алтайска</b><span class="mono">51 км · 50 минут</span></div>
+        <div class="stop here"><b>Турбаза, Усть-Сема</b><span class="mono">13-й км Чемальского тракта · урочище Верх-Чепош</span></div>
+        <div class="stop"><b>Чемал</b><span class="mono">ещё 25 км по тракту</span></div>
+      </div>
+    </div>
+    <div class="route-img map"><img src="img/map.jpg" alt="Схема проезда от Горно-Алтайска и аэропорта до участка" loading="lazy"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Развитие</div>
+        <h2 style="margin-top:14px">Готовая концепция загородного отеля</h2>
+      </div>
+      <p>Архитектурно-градостроительная концепция в двух вариантах планировки, 3D-визуализации, маркетинговый анализ и финансовая модель. С ними можно сразу идти к проектировщику, в банк и к партнёрам.</p>
+    </div>
+    <button class="plan" data-cap="Схема планировки участка, вариант 1" aria-label="Открыть схему планировки"><img src="img/plan.jpg" alt="Схема планировочной организации участка, вариант 1" loading="lazy"></button>
+    <p class="mono cap">Схема планировочной организации участка, вариант 1. Корпус, глэмпинг, детская площадка, пруды, место отдыха, парковка.</p>
+    <div class="specs">
+      <div class="spec"><b>~3&nbsp;750&nbsp;м²</b><span>главный корпус на двух этажах</span></div>
+      <div class="spec"><b>Бассейн и СПА</b><span>хамам, сауна, фитнес, массаж</span></div>
+      <div class="spec"><b>Ресторан</b><span>обеденный зал, бар, терраса у реки</span></div>
+      <div class="spec"><b>36–42&nbsp;м²</b><span>гостевые домики двух типов</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Покупатель</div>
+    <h2 style="margin:14px 0 40px">Кому подойдёт</h2>
+    <div class="who">
+      <div><h3>Операторам баз и&nbsp;глэмпингов</h3><p class="muted">Расширение на Алтае с работающим объектом, классификацией и потоком гостей.</p></div>
+      <div><h3>Инвесторам</h3><p class="muted">Доход с первого сезона и рост за счёт развития территории по готовой концепции.</p></div>
+      <div><h3>Отельным компаниям</h3><p class="muted">Площадка на первой линии Катуни под загородный отель, в часе от аэропорта.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="deal" id="deal">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Цена</div>
+      <div class="price">90&nbsp;000&nbsp;000&nbsp;₽</div>
+      <p class="muted">Продажа 100&nbsp;% долей ООО. Показ по договорённости, в том числе зимой. Презентацию, концепцию, финансовую модель и документы отправим по запросу.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Контакт</div>
+      <p style="margin-top:14px">Юлия Гоффер</p>
+      <div class="phone"><output id="phone">+7 964 644-99-88</output><button class="copy" id="copy" type="button">Скопировать</button></div>
+      <div class="cta" style="margin-top:0">
+        <a class="btn main" href="https://wa.me/79646449988?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D1%83%D1%80%D0%B1%D0%B0%D0%B7%D0%B0%20%D0%BD%D0%B0%20%D0%9A%D0%B0%D1%82%D1%83%D0%BD%D0%B8" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a class="btn" href="tel:+79646449988">Позвонить</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Информация на странице не является публичной офертой. Визуализации показывают концепцию развития, а не существующие постройки.</div></footer>
+
+
+<div class="variants" id="variants" role="group" aria-label="Варианты первого экрана">
+  <span>ПЕРВЫЙ ЭКРАН</span>
+  <button type="button" data-v="photo" aria-pressed="true">Катунь</button>
+  <button type="button" data-v="video" aria-pressed="false">Видео</button>
+  <button type="button" data-v="render" aria-pressed="false">Концепция</button>
+  <button type="button" data-v="split" aria-pressed="false">Сейчас / потом</button>
+  <button type="button" data-v="type" aria-pressed="false">Без фото</button>
+  <button type="button" class="hide" id="v-hide" aria-label="Скрыть панель">✕</button>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <img id="lb-img" alt="">
+  <button class="x" id="lb-x" type="button">Закрыть ✕</button>
+  <button class="prev" id="lb-prev" type="button" aria-label="Предыдущее">←</button>
+  <button class="next" id="lb-next" type="button" aria-label="Следующее">→</button>
+  <p id="lb-cap"></p>
+</div>
+
+<script>
+(function(){
+  var notes={now:["Настоящие фото: домики под соснами, детская площадка, палаточная поляна и выход к Катуни.","Фото турбазы, лето"],
+             future:["Так участок может выглядеть после развития: корпус с рестораном и бассейном, гостевые домики, глэмпинг, место для костра.","3D-визуализации концепции. Это не фото существующих построек."]};
+  var tabs=document.querySelectorAll('.switch button');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    var s=t.dataset.set;
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});
+    document.querySelectorAll('.gal').forEach(function(g){g.hidden=g.dataset.set!==s});
+    document.getElementById('gal-note').textContent=notes[s][0];
+    document.getElementById('gal-cap').textContent=notes[s][1];
+  })});
+
+  var lb=document.getElementById('lb'),li=document.getElementById('lb-img'),lc=document.getElementById('lb-cap'),list=[],idx=0;
+  function show(i){idx=(i+list.length)%list.length;var b=list[idx];var im=b.querySelector('img');li.src=im.src;li.alt=im.alt;lc.textContent=b.dataset.cap||im.alt}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.gal button,.plan');if(!b)return;
+    var scope=b.closest('.gal');list=scope?Array.prototype.slice.call(scope.querySelectorAll('button')):[b];
+    show(list.indexOf(b));lb.hidden=false;document.getElementById('lb-x').focus();
+  });
+  function close(){lb.hidden=true}
+  document.getElementById('lb-x').onclick=close;
+  document.getElementById('lb-prev').onclick=function(){show(idx-1)};
+  document.getElementById('lb-next').onclick=function(){show(idx+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+
+
+  /* варианты первого экрана: ?v=video или #v-video; ?final скрывает панель */
+  var hero=document.getElementById('hero'),ph=document.getElementById('hero-photo'),vid=document.getElementById('hero-video'),pan=document.getElementById('variants');
+  function setV(v){
+    hero.dataset.v=v;
+    ph.src=v==='render'?'img/c-1.jpg':'img/hero.jpg';
+    if(v==='video'){vid.preload='auto';var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){})}else{vid.pause()}
+    pan.querySelectorAll('button[data-v]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v?'true':'false')});
+    try{history.replaceState(null,'',location.pathname+location.search+'#v-'+v)}catch(e){}
+  }
+  pan.querySelectorAll('button[data-v]').forEach(function(b){b.addEventListener('click',function(){setV(b.dataset.v)})});
+  document.getElementById('v-hide').onclick=function(){pan.hidden=true};
+  var q=new URLSearchParams(location.search),hv=(location.hash.match(/^#v-(\w+)/)||[])[1];
+  if(q.has('final'))pan.hidden=true;
+  var start=q.get('v')||hv;
+  if(start&&['photo','video','render','split','type'].indexOf(start)>-1)setV(start);
+
+  var cb=document.getElementById('copy');
+  cb.addEventListener('click',function(){
+    var txt='+79646449988';
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('phone'));var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Выделено'}
+    try{navigator.clipboard.writeText(txt).then(function(){cb.textContent='Скопировано'},sel)}catch(e){sel()}
+  });
+})();
+</script>
+</body>
+</html>
