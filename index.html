@@ -190,6 +190,7 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
   .fact:last-child{grid-column:span 2;border-bottom:0}
   .head,.two,.route{grid-template-columns:minmax(0,1fr);gap:28px}
   .specs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal-stats.specs{grid-template-columns:minmax(0,1fr)!important}
   .who{grid-template-columns:minmax(0,1fr)}
   .gal{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(120px,36vw,220px)}
   .gal .a{grid-column:span 2;grid-row:span 2}
@@ -274,6 +275,11 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
       <button class="c" data-cap="Бассейн. Концепция"><img src="img/c-5.jpg" alt="Бассейн, визуализация" loading="lazy"><span class="badge">3D</span></button>
     </div>
     <p class="mono cap" id="gal-cap">Фото турбазы, лето</p>
+    <div class="specs gal-stats" data-set="future" hidden style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      <div class="spec"><b>12 месяцев</b><span>работы в году вместо 5 летних: крытый бассейн, СПА и ресторан держат гостей зимой</span></div>
+      <div class="spec"><b>~3&nbsp;750&nbsp;м²</b><span>главный корпус на двух этажах: номера, ресторан, залы, фитнес</span></div>
+      <div class="spec"><b>2 варианта</b><span>планировки участка, 3D-визуализации и финансовая модель уже готовы</span></div>
+    </div>
   </div>
 </section>
 
@@ -398,7 +404,7 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
   tabs.forEach(function(t){t.addEventListener('click',function(){
     var s=t.dataset.set;
     tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});
-    document.querySelectorAll('.gal').forEach(function(g){g.hidden=g.dataset.set!==s});
+    document.querySelectorAll('.gal,.gal-stats').forEach(function(g){g.hidden=g.dataset.set!==s});
     document.getElementById('gal-note').textContent=notes[s][0];
     document.getElementById('gal-cap').textContent=notes[s][1];
   })});
