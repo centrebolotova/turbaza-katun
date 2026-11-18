@@ -85,7 +85,15 @@ p{margin:0;max-width:62ch}
 .variants button{font:500 13px var(--f-body);background:transparent;color:var(--birch);border:1px solid var(--line);padding:7px 10px;cursor:pointer}
 .variants button[aria-pressed="true"]{background:var(--katun);color:#06231f;border-color:var(--katun)}
 .variants .hide{border:0;color:var(--mist)}
-@media (max-width:560px){.hero-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}
+html,body{overflow-x:clip}
+@media (max-width:560px){
+  .hero-split{bottom:42%}
+  .hero[data-v="split"]::after{background:linear-gradient(180deg,rgba(14,25,22,.1) 0%,rgba(14,25,22,.2) 45%,var(--pine) 58%)}
+  .hero-split figcaption{left:12px;font-size:10px}
+  .variants{flex-wrap:nowrap;overflow-x:auto;padding:8px;gap:5px;right:calc(12px + env(safe-area-inset-right,0px))}
+  .variants span{display:none}
+  .variants button{white-space:nowrap;font-size:12px;padding:6px 8px}
+}
 
 /* ЦИФРЫ */
 .facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
