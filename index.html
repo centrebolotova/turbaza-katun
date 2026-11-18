@@ -66,20 +66,22 @@ p{margin:0;max-width:62ch}
 
 
 /* ВАРИАНТЫ ПЕРВОГО ЭКРАНА */
-.hero-video,.hero-split{position:absolute;inset:0;z-index:-2;display:none}
+.hero-video,.hero-show{position:absolute;inset:0;z-index:-2;display:none}
 .hero-video video{width:100%;height:100%;object-fit:cover}
-.hero-split{grid-template-columns:1fr 1fr}
-.hero-split figure{margin:0;position:relative;overflow:hidden}
-.hero-split img{width:100%;height:100%;object-fit:cover}
-.hero-split figcaption{position:absolute;top:calc(24px + env(safe-area-inset-top,0px));left:24px;font:400 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(14,25,22,.75);padding:7px 10px}
-.hero-split figure+figure figcaption{color:var(--katun)}
-.hero[data-v="video"] .hero-img,.hero[data-v="split"] .hero-img,.hero[data-v="type"] .hero-img{display:none}
+.hero[data-v="video"] .hero-img,.hero[data-v="show"] .hero-img{display:none}
 .hero[data-v="video"] .hero-video{display:block}
-.hero[data-v="split"] .hero-split{display:grid}
-.hero[data-v="split"]::after{background:linear-gradient(90deg,rgba(14,25,22,.7) 0%,rgba(14,25,22,.25) 60%,rgba(14,25,22,.1) 100%),linear-gradient(180deg,transparent 40%,var(--pine) 100%)}
-.hero[data-v="type"]{background:radial-gradient(120% 90% at 85% 10%,#16302a 0%,var(--pine) 60%)}
-.hero[data-v="type"]::before{content:"";position:absolute;right:-6%;top:8%;width:62%;height:120%;z-index:-1;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(98,207,196,.08) 22px 23px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
-.hero[data-v="type"] h1{font-size:clamp(40px,8vw,112px);max-width:12ch}
+.hero[data-v="show"] .hero-show{display:block}
+.hero-show img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;will-change:opacity,transform}
+.hero-show img.on{opacity:1;animation:slow 7s linear both}
+@keyframes slow{from{transform:scale(1)}to{transform:scale(1.07)}}
+.stage{position:absolute;top:calc(28px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:12px;font:400 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
+@media (min-width:1212px){.stage{left:calc((100vw - 1180px)/2 + 16px)}}
+.stage b{font-weight:400;padding:7px 11px;border:1px solid rgba(233,238,232,.5);transition:background .6s,color .6s,border-color .6s}
+.stage b.future{background:var(--katun);border-color:var(--katun);color:#06231f}
+.stage i{display:block;width:90px;height:2px;background:rgba(233,238,232,.25);position:relative;overflow:hidden}
+.stage i::after{content:"";position:absolute;inset:0;background:var(--birch);transform-origin:left;transform:scaleX(0)}
+.stage i.run::after{animation:bar 5s linear forwards}
+@keyframes bar{to{transform:scaleX(1)}}
 .variants{position:fixed;z-index:40;left:calc(12px + env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));background:rgba(14,25,22,.94);border:1px solid var(--line);padding:10px 12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;max-width:calc(100vw - 24px)}
 .variants span{font:400 11px var(--f-mono);color:var(--mist);letter-spacing:.08em;margin-right:4px}
 .variants button{font:500 13px var(--f-body);background:transparent;color:var(--birch);border:1px solid var(--line);padding:7px 10px;cursor:pointer}
@@ -87,9 +89,7 @@ p{margin:0;max-width:62ch}
 .variants .hide{border:0;color:var(--mist)}
 html,body{overflow-x:clip}
 @media (max-width:560px){
-  .hero-split{bottom:42%}
-  .hero[data-v="split"]::after{background:linear-gradient(180deg,rgba(14,25,22,.1) 0%,rgba(14,25,22,.2) 45%,var(--pine) 58%)}
-  .hero-split figcaption{left:12px;font-size:10px}
+  .stage i{width:60px}
   .variants{flex-wrap:nowrap;overflow-x:auto;padding:8px;gap:5px;right:calc(12px + env(safe-area-inset-right,0px))}
   .variants span{display:none}
   .variants button{white-space:nowrap;font-size:12px;padding:6px 8px}
@@ -210,9 +210,14 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
 <header class="hero" id="hero" data-v="photo">
   <div class="hero-img"><img src="img/hero.jpg" alt="Катунь и скалы у границы участка" id="hero-photo"></div>
   <div class="hero-video"><video id="hero-video" muted loop playsinline preload="none" poster="img/hero.jpg"><source src="img/hero.mp4" type="video/mp4"></video></div>
-  <div class="hero-split" aria-hidden="true">
-    <figure><img src="img/now-1.jpg" alt=""><figcaption>Сейчас</figcaption></figure>
-    <figure><img src="img/c-3.jpg" alt=""><figcaption>Концепция</figcaption></figure>
+  <div class="hero-show" id="hero-show" aria-hidden="true">
+    <img data-src="img/hero.jpg" data-k="now" alt="">
+    <img data-src="img/c-1.jpg" data-k="future" alt="">
+    <img data-src="img/now-1.jpg" data-k="now" alt="">
+    <img data-src="img/c-4.jpg" data-k="future" alt="">
+    <img data-src="img/now-3.jpg" data-k="now" alt="">
+    <img data-src="img/c-2.jpg" data-k="future" alt="">
+    <div class="stage"><b id="stage-label">Сейчас</b><i id="stage-bar"></i></div>
   </div>
   <div class="wrap">
     <div>
@@ -373,8 +378,7 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
   <button type="button" data-v="photo" aria-pressed="true">Катунь</button>
   <button type="button" data-v="video" aria-pressed="false">Видео</button>
   <button type="button" data-v="render" aria-pressed="false">Концепция</button>
-  <button type="button" data-v="split" aria-pressed="false">Сейчас / потом</button>
-  <button type="button" data-v="type" aria-pressed="false">Без фото</button>
+  <button type="button" data-v="show" aria-pressed="false">Сейчас → потом</button>
   <button type="button" class="hide" id="v-hide" aria-label="Скрыть панель">✕</button>
 </div>
 
@@ -414,12 +418,28 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
   document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
 
 
+
+  /* «Сейчас → потом»: плавная смена настоящих фото и концепции */
+  var sh=document.getElementById('hero-show'),simgs=sh.querySelectorAll('img'),lab=document.getElementById('stage-label'),bar=document.getElementById('stage-bar'),si=-1,timer=null;
+  function nextShow(){
+    var prev=simgs[si];si=(si+1)%simgs.length;var cur=simgs[si];
+    if(!cur.src)cur.src=cur.dataset.src;
+    var nx=simgs[(si+1)%simgs.length];if(!nx.src)nx.src=nx.dataset.src;
+    cur.classList.remove('on');void cur.offsetWidth;cur.classList.add('on');
+    if(prev&&prev!==cur)setTimeout(function(){prev.classList.remove('on')},50);
+    var f=cur.dataset.k==='future';lab.textContent=f?'Концепция · 3D':'Сейчас';lab.className=f?'future':'';
+    bar.classList.remove('run');void bar.offsetWidth;bar.classList.add('run');
+  }
+  function startShow(){if(timer)return;nextShow();timer=setInterval(nextShow,5000)}
+  function stopShow(){clearInterval(timer);timer=null}
+
   /* варианты первого экрана: ?v=video или #v-video; ?final скрывает панель */
   var hero=document.getElementById('hero'),ph=document.getElementById('hero-photo'),vid=document.getElementById('hero-video'),pan=document.getElementById('variants');
   function setV(v){
     hero.dataset.v=v;
     ph.src=v==='render'?'img/c-1.jpg':'img/hero.jpg';
     if(v==='video'){vid.preload='auto';var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){})}else{vid.pause()}
+    if(v==='show'){startShow()}else{stopShow()}
     pan.querySelectorAll('button[data-v]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v?'true':'false')});
     try{history.replaceState(null,'',location.pathname+location.search+'#v-'+v)}catch(e){}
   }
@@ -428,7 +448,7 @@ footer{padding-block:28px;font-size:13px;color:var(--mist);border-top:1px solid 
   var q=new URLSearchParams(location.search),hv=(location.hash.match(/^#v-(\w+)/)||[])[1];
   if(q.has('final'))pan.hidden=true;
   var start=q.get('v')||hv;
-  if(start&&['photo','video','render','split','type'].indexOf(start)>-1)setV(start);
+  if(start&&['photo','video','render','show'].indexOf(start)>-1)setV(start);
 
   var cb=document.getElementById('copy');
   cb.addEventListener('click',function(){
